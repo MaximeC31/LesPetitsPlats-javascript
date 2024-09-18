@@ -1,5 +1,5 @@
 import { PARAMS_KEY, getQueryParams, setQueryParams } from '../utils/queryParamsHandler.js';
-import { getFilteredServices } from '../utils/api-natif.js';
+import { getFilteredServices } from '../utils/api-array.js';
 import { recipes } from '../../../data/recipes.js';
 
 class SearchBar {

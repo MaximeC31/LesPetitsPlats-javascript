@@ -5,7 +5,7 @@ import {
 	getRecipesAppliances,
 	getRecipesUstensils,
 	getFilteredRecipes,
-} from '../utils/api-natif.js';
+} from '../utils/api-array.js';
 
 class FiltersBox {
 	constructor() {
