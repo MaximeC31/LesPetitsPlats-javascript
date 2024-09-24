@@ -1,4 +1,4 @@
-import { getFilteredRecipes } from '../utils/api-array.js';
+import { getFilteredRecipes } from '../utils/api.js';
 
 class RecipeGallery {
 	constructor() {}

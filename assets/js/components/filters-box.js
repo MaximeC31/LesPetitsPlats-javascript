@@ -5,7 +5,7 @@ import {
 	getRecipesAppliances,
 	getRecipesUstensils,
 	getFilteredRecipes,
-} from '../utils/api-array.js';
+} from '../utils/api.js';
 
 class FiltersBox {
 	constructor() {
@@ -46,6 +46,19 @@ class FiltersBox {
 			`;
 		};
 
+		const displayRecipesResults = () => {
+			switch (getFilteredRecipes().length) {
+				case 0:
+					return 'Aucune recette trouvée';
+
+				case 1:
+					return '1 recette';
+
+				default:
+					return `${getFilteredRecipes().length} recettes`;
+			}
+		};
+
 		return `
 			<section class="main-filters-section bg-gray-100 flex flex-row justify-between items-start gap-12 px-16 py-8">
 				<div class="main-filters-section__filters-container flex flex-row gap-6 items-start">
@@ -54,7 +67,7 @@ class FiltersBox {
 					${createFilterBoxItems('Ustensiles', this.sortRecipesUstensils, PARAMS_KEY.USTENSILS)}
 				</div>
 				<p class="main-filters-section__recipes-found font-anton font-bold text-xl min-w-fit mt-3">
-					${getFilteredRecipes().length} recettes
+					${displayRecipesResults()}
 				</p>
 			</section>
 		`;

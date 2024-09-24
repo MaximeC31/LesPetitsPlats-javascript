@@ -1,6 +1,4 @@
 import { PARAMS_KEY, getQueryParams, setQueryParams } from '../utils/queryParamsHandler.js';
-import { getFilteredServices } from '../utils/api-array.js';
-import { recipes } from '../../../data/recipes.js';
 
 class SearchBar {
 	constructor() {}
@@ -38,28 +36,7 @@ class SearchBar {
 			const inputSearchFormKey = inputSearchForm.getAttribute('data-active-key');
 			const inputSearchFormValue = inputSearchForm.value;
 
-			if (inputSearchFormValue.length === 0) {
-				setQueryParams(inputSearchFormKey, '');
-				return;
-			}
-
-			if (inputSearchFormValue.length < 3) {
-				alert('Veuillez insérer au moins 3 caractères dans la barre de recherche');
-				return;
-			}
-
-			if (inputSearchFormValue.length >= 3) {
-				const findMatchingRecipe = recipes.some((recipe) =>
-					getFilteredServices(recipe, inputSearchFormValue),
-				);
-				if (findMatchingRecipe) {
-					setQueryParams(inputSearchFormKey, inputSearchFormValue);
-				} else {
-					alert(`Aucune recette ne contient ${inputSearchFormValue}`);
-					setQueryParams(inputSearchFormKey, inputSearchFormValue);
-				}
-				return;
-			}
+			setQueryParams(inputSearchFormKey, inputSearchFormValue);
 		};
 
 		const toggleDeleteButton = () => {
