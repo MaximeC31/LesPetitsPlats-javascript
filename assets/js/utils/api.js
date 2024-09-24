@@ -92,7 +92,7 @@ export const getFilteredServices = (recipe, searchParam) => {
 		return true;
 	}
 
-	if (searchQueryParamsNormalized) {
+	if (searchQueryParamsNormalized.length >= 3) {
 		const recipeString = JSON.stringify(recipe, null);
 		const recipeNormalized = normalizeString(recipeString);
 		return recipeNormalized.includes(searchQueryParamsNormalized);
