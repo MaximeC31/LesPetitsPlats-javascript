@@ -1,0 +1,9 @@
+{
+	"devDependencies": {
+		"tailwindcss": "^3.4.4"
+	},
+	"scripts": {
+		"dev": "pnpm tailwindcss -i ./assets/css/input-style.css -o ./assets/css/output-style.css --watch",
+		"build": "pnpm tailwind -i ./assets/css/input-style.css -o ./assets/css/output-style.css --minify"
+	}
+}
